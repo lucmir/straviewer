@@ -1,30 +1,26 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import ReactDOM from 'react-dom';
+import { Switch, Route } from 'react-router-dom';
+import { Header, Container, Divider } from 'semantic-ui-react';
+import Login from './components/Login';
 
 class App extends Component {
-  state = {
-    users: []
-  }
-
-  componentDidMount = () => {
-    fetch('/users')
-      .then(res => res.json())
-      .then(users => this.setState({ users }));
-  }
-
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">STRAVIEWER</h1>
-        </header>
-        <p className="App-intro">
-          <h1>Users</h1>
-          {this.state.users.map(user =>
-            <div key={user.id}>{user.username}</div>
-          )}
-        </p>
+        <Header as='h1' textAlign='center'>
+          STRAVIEWER
+          <Header.Subheader>
+            Follow your performance
+          </Header.Subheader>
+        </Header>
+        <Divider section/>
+        <Container>
+          <Switch>
+            <Route exact path='/' component={Login}/>
+            <Route path='/login' component={Login}/>
+          </Switch>
+        </Container>
       </div>
     );
   }

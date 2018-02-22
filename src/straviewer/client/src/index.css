@@ -1,5 +1,14 @@
 body {
   margin: 0;
-  padding: 0;
+  padding: 90px;
+  padding-top: 30px;
   font-family: sans-serif;
+}
+
+.ui.orange.button,
+.ui.orange.buttons .button {
+  background-color: #FC4C02;
+  color: #fff;
+  text-shadow: none;
+  background-image: none;
 }
